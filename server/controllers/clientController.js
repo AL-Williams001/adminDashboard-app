@@ -16,6 +16,7 @@ export const getProducts = async (req, res) => {
         };
       })
     );
+
     res.status(200).json({ productsWithStats });
   } catch (error) {
     console.error(error); // Log the error for debugging
