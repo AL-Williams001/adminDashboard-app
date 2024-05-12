@@ -1,5 +1,6 @@
 import Product from "../models/productModel.js";
 import ProductStat from "../models/productStat.js";
+import User from "../models/userModel.js";
 
 export const getProducts = async (req, res) => {
   try {
@@ -21,5 +22,14 @@ export const getProducts = async (req, res) => {
   } catch (error) {
     console.error(error); // Log the error for debugging
     return res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getCustomers = async (req, res) => {
+  try {
+    const customers = await User.find({ role: "user" }).select("-password");
+    res.status(200).json(customers);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };
