@@ -92,7 +92,7 @@ const Products = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="PRODUCTS" subtitle="See your list of products." />
-      {data || !isLoading ? (
+      {Array.isArray(data) && !isLoading ? ( // Check if data is an array and not loading
         <Box
           mt="20px"
           display="grid"
@@ -104,33 +104,29 @@ const Products = () => {
             "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
           }}
         >
-          {Array.isArray(data) ? (
-            data.map(
-              ({
-                _id,
-                name,
-                description,
-                price,
-                rating,
-                category,
-                supply,
-                stat,
-              }) => (
-                <Product
-                  key={_id}
-                  _id={_id}
-                  name={name}
-                  description={description}
-                  price={price}
-                  rating={rating}
-                  category={category}
-                  supply={supply}
-                  stat={stat}
-                />
-              )
+          {data.map(
+            ({
+              _id,
+              name,
+              description,
+              price,
+              rating,
+              category,
+              supply,
+              stat,
+            }) => (
+              <Product
+                key={_id}
+                _id={_id}
+                name={name}
+                description={description}
+                price={price}
+                rating={rating}
+                category={category}
+                supply={supply}
+                stat={stat}
+              />
             )
-          ) : (
-            <Typography>No data available</Typography>
           )}
         </Box>
       ) : (
