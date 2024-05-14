@@ -60,6 +60,6 @@ mongoose
     // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
     // User.insertMany(dataUser);
-    AffiliateStat.insertMany(dataAffiliateStat);
+    // AffiliateStat.insertMany(dataAffiliateStat);
   })
   .catch((error) => console.log(`${error} did not connect`));

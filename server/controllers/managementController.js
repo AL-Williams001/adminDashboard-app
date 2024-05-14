@@ -16,7 +16,7 @@ export const getUserPerformance = async (req, res) => {
     const { id } = req.params;
 
     const userWithStats = await User.aggregate([
-      { $match: { _id: new mongoose.Types.ObjectId(id) } },
+      { $match: { _id: mongoose.Types.ObjectId.createFromHexString(id) } },
       {
         $lookup: {
           from: "affiliatestats",
