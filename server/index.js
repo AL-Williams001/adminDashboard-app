@@ -16,6 +16,7 @@ import Product from "./models/productModel.js";
 import ProductStat from "./models/productStat.js";
 import Transaction from "./models/transactionModel.js";
 import OverallStat from "./models/OverallStat.js";
+import AffiliateStat from "./models/AffiliateStat.js";
 
 import {
   dataUser,
@@ -23,6 +24,7 @@ import {
   dataProductStat,
   dataTransaction,
   dataOverallStat,
+  dataAffiliateStat,
 } from "./data/data.js";
 
 // Config
@@ -47,10 +49,7 @@ app.use("/sales", salesRoutes);
 // Mongoose Setup
 const PORT = process.env.PORT || 9000;
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
     // Only for first time data import
@@ -59,5 +58,6 @@ mongoose
     // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
     // OverallStat.insertMany(dataOverallStat);
+    // AffiliateStat.insertMany(dataAffiliateStat);
   })
   .catch((error) => console.log(`${error} did not connect`));

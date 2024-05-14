@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const OverallStatSchema = new mongoose.Schema(
+const overallStatSchema = new mongoose.Schema(
   {
     totalCustomers: Number,
     yearlySalesTotal: Number,
@@ -28,5 +28,9 @@ const OverallStatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const OverallStat = mongoose.model("OverallStat", OverallStatSchema);
+// Option 1: Update model definition with lowercase name
+const OverallStat = mongoose.model("overallStat", overallStatSchema); // Use lowercase name here
+
+// Option 2 (if Option 1 doesn't work): Clear caches or recreate the model
+
 export default OverallStat;
