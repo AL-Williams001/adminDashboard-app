@@ -44,8 +44,12 @@ app.use("/sales", salesRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
+const MONGO_URL = process.env.MONGO_URL;
+
+console.log("MongoDB URL: ", MONGO_URL);
+
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
