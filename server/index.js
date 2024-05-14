@@ -16,7 +16,6 @@ import Product from "./models/productModel.js";
 import ProductStat from "./models/productStat.js";
 import Transaction from "./models/transactionModel.js";
 import OverallStat from "./models/OverallStat.js";
-import AffiliateStat from "./models/AffiliateStat.js";
 
 import {
   dataUser,
@@ -24,7 +23,6 @@ import {
   dataProductStat,
   dataTransaction,
   dataOverallStat,
-  dataAffiliateStat,
 } from "./data/data.js";
 
 /* CONFIGURATION */
